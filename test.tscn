@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://pur4r3ajnhnu"]
+
+[ext_resource type="Script" uid="uid://bag0mmf7ea3ih" path="res://Attributes/AttributeSet.cs" id="1_8uh7m"]
+[ext_resource type="Script" uid="uid://ca8wro4y35app" path="res://Attributes/Attribute.cs" id="2_6uqi0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VitalAttributes" type="Node" parent="."]
+script = ExtResource("1_8uh7m")
+metadata/_custom_type_script = "uid://bag0mmf7ea3ih"
+
+[node name="Health" type="Node" parent="VitalAttributes"]
+script = ExtResource("2_6uqi0")
+CurrentValue = 100.0
+BaseValue = 100.0
+metadata/_custom_type_script = "uid://ca8wro4y35app"
+
+[node name="Stamina" type="Node" parent="VitalAttributes"]
+script = ExtResource("2_6uqi0")
+CurrentValue = 100.0
+BaseValue = 100.0
+metadata/_custom_type_script = "uid://ca8wro4y35app"

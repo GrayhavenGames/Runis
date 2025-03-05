@@ -1,6 +1,7 @@
 using Godot;
 
 namespace Runis.Attributes;
+[Tool]
 [GlobalClass]
 public partial class Attribute : Node
 {
@@ -13,22 +14,10 @@ public partial class Attribute : Node
     [Signal]
     public delegate void CurrentValueChangedEventHandler(float oldValue, float newValue);
     
-    private float _baseValue;
     private float _currentValue;
+    private float _baseValue;
 
-    public float BaseValue
-    {
-        get => _baseValue;
-        set
-        {
-            EmitSignal(SignalName.PreBaseValueChanged, _currentValue, value);
-            var oldValue = _currentValue;
-            _currentValue = value;
-            EmitSignal(SignalName.BaseValueChanged, oldValue, _currentValue);
-        }
-    }
-
-    public float CurrentValue
+    [Export] public float CurrentValue
     {
         get => _currentValue;
         set
@@ -40,4 +29,15 @@ public partial class Attribute : Node
         }
     }
     
+    [Export] public float BaseValue
+    {
+        get => _baseValue;
+        set
+        {
+            EmitSignal(SignalName.PreBaseValueChanged, _baseValue, value);
+            var oldValue = _baseValue;
+            _baseValue = value;
+            EmitSignal(SignalName.BaseValueChanged, oldValue, _baseValue);
+        }
+    }
 }
